@@ -34,8 +34,6 @@ def input_fn(serialized_input_data, content_type=CONTENT_TYPE):
 
 # Perform prediction on the deserialized object, with the loaded model
 def predict_fn(input_object, model):
-
-
     logger.info("Calling model")
     start_time = time.time()
     sentence_embeddings = model.encode(input_object)
