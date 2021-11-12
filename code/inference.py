@@ -1,11 +1,5 @@
-import argparse
 import logging
 import sagemaker_containers
-import requests
-
-import os
-import json
-import io
 import time
 import torch
 from sentence_transformers import models, losses, SentenceTransformer
@@ -45,7 +39,3 @@ def predict_fn(input_object, model):
 def output_fn(prediction, accept):
     logger.info('Serializing the generated output.')
     return prediction
-    # if accept == 'application/octet-stream':
-    #     output = json.dumps(prediction)
-    #     return output
-    raise Exception('Requested unsupported ContentType in Accept: {}'.format(content_type))
